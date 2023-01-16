@@ -16,7 +16,7 @@ public class CssDemo extends BaseTest {
         driver.findElement(By.cssSelector("#twotabsearchtextbox")).sendKeys("Iphone", Keys.ENTER); // можем работать не сохряняя
         WebElement appleText = driver.findElement(By.cssSelector("li[id='p_89/Apple']"));
         System.out.println(appleText.getText());
-        //driver.findElement(By.xpath("(//span[@class='a-expander-prompt'])[12]")).click();
+        driver.findElement(By.xpath("(//span[@class='a-expander-prompt'])[12]")).click();
         List<WebElement> allBrands = driver.findElements(By.xpath("//li[contains(@id,'p_89/')]"));
         for (WebElement e:allBrands){
             if(e.getText().equals("SAMSUNG")){
@@ -24,8 +24,6 @@ public class CssDemo extends BaseTest {
                 e.findElement(By.tagName("i")).click();
                 break;
             }
-//            e.findElement(By.tagName("i")).click();
-//            break;
             System.out.println(e.getText());
         }
     }
