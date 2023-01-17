@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class IMoving extends BaseTest {
@@ -30,6 +31,8 @@ public class IMoving extends BaseTest {
         Helper.pause(3000);
     }
 
+    Integer quantityOfItems = 0;
+
     @Test(priority = 3)
     public void addDresser(){
         // Adding Dresser
@@ -40,18 +43,21 @@ public class IMoving extends BaseTest {
         dresser1.findElement(By.xpath(".//a[contains(text(),'Add to Inventory')]")).click();
         Helper.pause(1000);
         dresser1.findElement(By.xpath("//button[@class='quantity-plus']")).click();
+        Helper.pause(1000);
     }
     @Test(dependsOnMethods = {"addDresser"})
     public void addBed(){
         // Adding Bed
         Actions bed = new Actions(driver);
-//        WebElement bed1 = driver.findElement(By.xpath("//div[@class='13']"));
-        WebElement bed1 = driver.findElement(By.xpath("//div[@class='13']")).findElement(By.xpath("//div[@style='z-index: 14']"));
+        WebElement bed1 = driver.findElement(By.xpath("//div[@class='13']")).findElement(By.xpath("//div[@class='item']"));
         bed.moveToElement(bed1).perform();
         Helper.pause(1000);
         bed1.findElement(By.xpath(".//a[contains(text(),'Add to Inventory')]")).click();
         Helper.pause(1000);
-        bed1.findElement(By.xpath("//button[@class='quantity-plus']")).click();
+        bed1.findElement(By.xpath("(//button[@class='quantity-plus'])[3]")).click();
+        Helper.pause(1000);
+        bed1.findElement(By.xpath("(//button[@class='quantity-plus'])[3]")).click();
+        Helper.pause(1000);
     }
     @Test(dependsOnMethods = {"addBed"})
     public void addTV(){
@@ -62,6 +68,21 @@ public class IMoving extends BaseTest {
         Helper.pause(1000);
         TV1.findElement(By.xpath(".//a[contains(text(),'Add to Inventory')]")).click();
         Helper.pause(1000);
-        TV1.findElement(By.xpath("//button[@class='quantity-plus']")).click();
+        TV1.findElement(By.xpath("(//button[@class='quantity-plus'])[5]")).click();
+        Helper.pause(1000);
+        TV1.findElement(By.xpath("(//button[@class='quantity-plus'])[5]")).click();
+        Helper.pause(1000);
+    }
+    @Test(priority = 4)
+    public void checkQuantity(){
+        String dresser = driver.findElement(By.xpath("(//input[@type='number'])[1]")).getAttribute("value");
+        String bed = driver.findElement(By.xpath("(//input[@type='number'])[3]")).getAttribute("value");
+        String TV = driver.findElement(By.xpath("(//input[@type='number'])[5]")).getAttribute("value");
+        quantityOfItems = Integer.parseInt(dresser) + Integer.parseInt(bed) + Integer.parseInt(TV);
+        WebElement str = driver.findElement(By.xpath("(//span[@ng-show='room.ItemsCount>0'])[1]"));
+        String str1 = str.getText();
+        System.out.println(str1);
+        Integer sumOfItem = Integer.valueOf(str1.substring(0,str1.indexOf(" ")));
+        Assert.assertEquals(quantityOfItems, sumOfItem);
     }
 }
