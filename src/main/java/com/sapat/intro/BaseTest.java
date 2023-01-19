@@ -19,9 +19,10 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
-//    @AfterClass
-//    public void close(){
-//        driver.close();
-//        driver.quit();
-//    }
+    @AfterClass
+    public void close(){
+        Helper.pause(5000);
+        driver.close();
+        driver.quit();
+    }
 }
