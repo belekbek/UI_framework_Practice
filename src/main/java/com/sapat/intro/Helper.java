@@ -1,5 +1,9 @@
 package com.sapat.intro;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import java.util.concurrent.TimeUnit;
 
 public class Helper {
@@ -9,5 +13,13 @@ public class Helper {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    public static void jsClick(WebDriver driver, WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("argument[0].click();", element);
+    }
+    public static void jsScrollDownThePage(WebDriver driver){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
     }
 }
