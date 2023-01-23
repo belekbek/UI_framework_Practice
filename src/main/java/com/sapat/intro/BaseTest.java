@@ -10,13 +10,15 @@ import java.time.Duration;
 
 public abstract class BaseTest {
     WebDriver driver;
-
+    BrowserHelper browserHelper;
     @BeforeClass
     public void setUp(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        browserHelper = new BrowserHelper(driver);
+
     }
 
     @AfterClass
