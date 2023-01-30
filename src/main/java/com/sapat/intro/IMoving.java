@@ -25,8 +25,8 @@ public class IMoving extends BaseTest {
     public void closePopUpWindow(){
         Helper.pause(3000);
         driver.findElement(By.xpath("//a[@class='btn btn-blue col-xs-6']")).click();
-//        Helper.pause(3000);
-//        driver.findElement(By.xpath("//a[text()='GOT IT']")).click();
+        Helper.pause(3000);
+        driver.findElement(By.xpath("//a[text()='GOT IT']")).click();
         Helper.pause(3000);
         driver.findElement(By.xpath(".//a[@id='closeTutorial']")).click();
         Helper.pause(3000);

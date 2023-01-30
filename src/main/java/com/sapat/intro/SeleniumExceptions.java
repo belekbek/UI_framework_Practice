@@ -1,28 +1,28 @@
 package com.sapat.intro;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
-
 public class SeleniumExceptions extends BaseTest{
 
     @Test
     public void demo1(){
         //No such element
         browserHelper.openURL("https://demoqa.com/text-box");
-
     }
+
     @Test
     public void elementClickInterceptedException(){
         browserHelper.openURL("https://demoqa.com/radio-button");
         driver.findElement(By.id("noRadio")).click();
     }
+
     @Test
     public void elementNotInteractableException(){
         browserHelper.openURL("https://demoqa.com/radio-button");
         driver.findElement(By.id("noRadio")).sendKeys("saas");
     }
+
     @Test
     public void elementClickInterceptedExceptionTest(){
         browserHelper.openURL("https://www.imoving.com/");
