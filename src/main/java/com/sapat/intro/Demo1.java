@@ -40,7 +40,5 @@ public class Demo1 {
         WebElement printAddress = driver.findElement(By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[6]/div/p[3]"));
         System.out.println(printAddress.getText());
         driver.close();
-
     }
-
 }
