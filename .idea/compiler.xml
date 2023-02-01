@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="UI_framework_Practice" />
+        <module name="TalentLMS_Fall2022" />
       </profile>
     </annotationProcessing>
   </component>

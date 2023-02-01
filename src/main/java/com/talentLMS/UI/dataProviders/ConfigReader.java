@@ -3,6 +3,9 @@ package com.talentLMS.UI.dataProviders;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+/**
+ * @author Belek Baratov
+ */
 
 public class ConfigReader {
     private static Properties properties;

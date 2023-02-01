@@ -6,6 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
+/**
+ * @author Belek Baratov
+ */
 
 public class ChromeWebDriver {
     public static WebDriver loadChromeDriver(){

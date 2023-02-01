@@ -2,7 +2,9 @@ package com.talentLMS;
 
 import com.talentLMS.UI.dataProviders.ConfigReader;
 import com.talentLMS.UI.driverFactory.Driver;
-
+/**
+ * @author Belek Baratov
+ */
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         System.out.println(ConfigReader.getProperty("browser"));
